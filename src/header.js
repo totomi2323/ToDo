@@ -1,9 +1,7 @@
 const headerDisplay = (() => {
-    let header = document.createElement("header");
-    header.innerHTML = "To-Do List"; 
-    document.body.appendChild(header);
+  let header = document.createElement("header");
+  header.innerHTML = "To-Do List";
+  document.body.appendChild(header);
+})();
 
-}
-)();
-
-export {headerDisplay as header};
+export { headerDisplay as header };

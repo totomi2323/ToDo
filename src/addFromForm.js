@@ -7,7 +7,7 @@ function taskValues(title, description, dueDate, priority,deleteId) {
           (this.dueDate = dueDate),
           (this.priority = priority); 
           (this.deleteId = deleteId);
-};
+}
   const getFormValues = (index) => {
      let theTask;
     let form = document.querySelector("#taskForm");
@@ -19,7 +19,7 @@ function taskValues(title, description, dueDate, priority,deleteId) {
     theTask = new taskValues(title,description,dueDate,priority,deleteId);
     let newObj = {
     [index] : theTask,
-    }
+    };
     return  newObj;
     
     

@@ -1,6 +1,4 @@
 const addTaskForm = () => {
-
-
   console.log("semmi");
   const form = document.createElement("form");
   form.classList.add("formStyle");
@@ -46,11 +44,19 @@ const addTaskForm = () => {
     prioSelect.appendChild(option);
   }
   const pushButton = document.createElement("button");
-  pushButton.type= "button";
+  pushButton.type = "button";
   pushButton.id = "addTask";
   pushButton.innerHTML = "Add";
 
- document.body.appendChild(form);
+  const closeButton = document.createElement("button");
+  closeButton.type = "button";
+  closeButton.id = "close";
+  closeButton.innerHTML = "Close";
+  closeButton.addEventListener("click", function() {
+    document.getElementById("taskForm").style.display = "none";
+  });
+
+  document.body.appendChild(form);
   form.appendChild(titleSpan);
   form.appendChild(title);
   form.appendChild(descriptionSpan);
@@ -61,7 +67,7 @@ const addTaskForm = () => {
   form.appendChild(prioLabel);
   form.appendChild(prioSelect);
   form.appendChild(pushButton);
-  
+  form.appendChild(closeButton);
 };
 
 export { addTaskForm as addTaskForm };

@@ -1,28 +1,48 @@
-let todayArray = (() => {
+import { isThisISOWeek, parseISO } from "date-fns";
 
-    const sortToday = (allTasksArray) => {
+let arraySorting = (() => {
+  const today = (allTasksArray) => {
     let today = new Date();
     let day;
-    if (today.getDate() <= 10) {
-        day = "0" + today.getDate();
+    if (today.getDate() <= 9) {
+      day = "0" + today.getDate();
+    }
+    else  { day = today.getDate();}
+    let todayDate =
+      today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + day;
+    console.log(todayDate);
+    let dayArray = new Object();
+    for (var key in allTasksArray) {
+      if (Object.prototype.hasOwnProperty.call(allTasksArray, key)) {
+        if (allTasksArray[key].dueDate == todayDate) {
+          console.log(allTasksArray[key].deleteId);
+          let newObj = {
+            [allTasksArray[key].deleteId]: allTasksArray[key],
+          };
+          Object.assign(dayArray, newObj);
+        }
+      }
     }
 
+    return dayArray;
+  };
+  const week = (allTasksArray) => {
+    let weekArray = new Object();
+    for (var key in allTasksArray) {
+      if (Object.prototype.hasOwnProperty.call(allTasksArray, key)) {
+        if (isThisISOWeek(parseISO(allTasksArray[key].dueDate)) === true) {
+          console.log(parseISO(allTasksArray[key].dueDate));
+          let newObj = {
+            [allTasksArray[key].deleteId]: allTasksArray[key],
+          };
+          Object.assign(weekArray, newObj);
+        }
+      }
+    }
+    return weekArray;
+  };
 
-    let todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+ day;
-        console.log(todayDate);
-        let todayArray = {};
-        for (var key in allTasksArray) {
-            if (allTasksArray.hasOwnProperty(key)) {
-              if ((allTasksArray[key].dueDate) == todayDate) {
-               Object.assign(todayArray, allTasksArray[key]);
-                console.log(todayArray)
-              };
-            }
-    }
-    /* doesnt put all equal dates in array, sort this problem */
-    return {todayArray};
-    }
-    return {sortToday}
+  return { today, week };
 })();
 
-export {todayArray as todayArray};
+export { arraySorting as arraySorting };

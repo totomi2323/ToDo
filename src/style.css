@@ -80,3 +80,17 @@ header {
 button:hover {
   cursor: pointer;
 }
+.projectButtons {
+  padding: 15px;
+  width : 80%;
+  align-self:  center;
+  border-radius: 10px;
+  background-color: burlywood;
+}
+.projects {
+  padding: 15px;
+  width : 80%;
+  align-self:  center;
+  border-radius: 10px;
+  background-color:lightgreen;
+}

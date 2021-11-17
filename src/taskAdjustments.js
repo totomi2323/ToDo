@@ -5,7 +5,6 @@ const taskAdjustment = (() => {
     let taskDeleteButtons = document.querySelectorAll('[delete="del"');
     if (typeof toCompare === "undefined") {
       toCompare = "";
-      console.log("lefutott");
     }
     taskDeleteButtons.forEach((delButton) => {
       delButton.addEventListener("click", function () {

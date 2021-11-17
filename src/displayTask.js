@@ -31,7 +31,7 @@ const displayTask = (() => {
     header.appendChild(dueDate);
     header.appendChild(priority);
     header.appendChild(empty);
-  }
+  };
   const emptyContainer = () => {
     const refresh = document.querySelector("#cont");
     const allTask = document.querySelectorAll(".task");

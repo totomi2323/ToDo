@@ -5,12 +5,16 @@ import { addTaskForm } from "./addTaskForm.js";
 import { displayTask } from "./displayTask.js";
 import { addToDo } from "./addFromForm.js";
 import { arraySorting } from "./arraySorting.js";
+import {projectTab} from "./project.js";
 
 navBar.addButton("button0", "All tasks", "allTasks");
 navBar.addButton("button1", "Today", "today");
 navBar.addButton("button2", "This Week", "week");
 navBar.addButton("button4", "All Projects", "allProjects");
-navBar.addButton("button5", "+", "add");
+navBar.addButton("button5", "Add Task", "add");
+
+projectTab.createAddButton();
+projectTab.projectTitle();
 
 
 let taskArray = {
@@ -35,6 +39,7 @@ displayTask.displayArray(taskArray);
 
 document.querySelector("#allTasks").addEventListener("click", function () {
   displayTask.displayArray(taskArray);
+  
 });
 
 
